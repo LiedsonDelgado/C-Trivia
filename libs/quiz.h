@@ -26,4 +26,8 @@ typedef struct question{
     struct question *next;
 }Question;
 
+void menu();
+
+int validateInt(const char *prompt);
+
 #endif
