@@ -9,21 +9,40 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<locale.h>
 
-//arvore de usuarios
-typedef struct user{
+//Estruturas de Dados
+//-------------------
+typedef char Question;
+
+//Estrutura que representa a arvore de usuarios
+typedef struct player{
     char playerName[100];
-    int score;
-    struct users *left;
-    struct users *right;
-}User;
+    struct player *left;
+    struct player *right;
+}*Player;
 
-//lista de perguntas
-typedef struct question{
-    char *question;
+//Estrutura que representa um quiz
+typedef struct{
+    Question* questions; //String que ira guardar a pergunta
+    Player ranking;
+}*Quiz;
+
+//Estrutura da lista de perguntas
+typedef struct questionList{
+    Quiz question; //guarda a struct quiz que contem a pegunta e o ranking do jogador
     char *options;
-    char correctAnswer;
-    struct question *next;
-}Question;
+    char correctAnswer; //Contendo apenas um caracter(ex.:A,B,C,D,etc)
+    struct questionList *next;
+}*QuestionList;
+
+//Prototipos das Funcoes
+//----------------------
+void menu();
+QuestionList addNewQuestion(QuestionList qList,Question question); //recebe como parametro a lista de questoes e a questao que se quer adicionar nela
+void eliminateQuestion(QuestionList qList,Question question);
+void showAllTheQuestions(QuestionList qList);
+void showScore(Question qList);
+char* searchPlayer(Player playerTree);
 
 #endif
