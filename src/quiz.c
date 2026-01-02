@@ -78,3 +78,86 @@ void menu(){
     } while (option != 0);
     
 }
+
+Player* createPlayerTree(){
+    Player* node = (Player*)malloc(sizeof(Player));
+    if(node == NULL){
+        printf("Erro ao alocar memoria!\n");
+        exit(EXIT_FAILURE);
+    }
+
+    node->left = NULL;
+    node->right = NULL;
+
+    return node;
+}
+
+Player* addPlayerIntoTree(Player* playerTree,char playerName[100]){
+    //(...)
+    return playerTree;
+}
+
+Player* removePlayerFromTree(Player* playerTree,char playerName[100]){
+    //(...)
+    return playerTree;
+}
+
+QuestionList* createQuestionList(){
+    QuestionList* node = (QuestionList*)malloc(sizeof(QuestionList));
+    if(node == NULL){
+        printf("Erro: ao alocar memoria!\n");
+        exit(EXIT_FAILURE);
+    }
+
+    node->next = NULL;
+
+    return node;
+}
+
+QuestionList* addNewQuestion(QuestionList* qList,Quiz* quiz){ //(incompleta por hora!!!)
+    if(quiz == NULL){
+        printf("Erro: entrada invalida,digite uma pergunta valida!\n");
+        exit(EXIT_FAILURE);
+    }
+
+    QuestionList* newQList = (QuestionList*)malloc(sizeof(QuestionList));
+    if(newQList == NULL){
+        printf("Erro: ao alocar memoria!\n");
+        exit(EXIT_FAILURE);
+    }
+
+    newQList->question = quiz->questions;
+    //newQList->options = (...)
+    //newQList->correctAnswer = (...)
+    newQList->next = NULL;
+
+    if(qList == NULL){
+        return newQList;
+    }
+
+    QuestionList* aux = qList;
+    while(aux->next != NULL){
+        aux = aux->next;
+    }
+    aux->next = newQList;
+
+    return qList;
+}
+
+
+QuestionList* eliminateQuestion(QuestionList* qList,Quiz* quiz){
+
+    return qList;
+}
+
+void showAllTheQuestions(QuestionList* qList){
+
+}
+
+void showScore(QuestionList* qList){
+
+}
+char* searchPlayer(Player* playerTree){
+
+    return->playerTree->playerName;
+}
