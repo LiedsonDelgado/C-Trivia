@@ -28,6 +28,4 @@ typedef struct question{
 
 void menu();
 
-int validateInt(const char *prompt);
-
 #endif

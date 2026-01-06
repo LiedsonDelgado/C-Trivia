@@ -10,6 +10,7 @@
 
 #include<stdio.h>
 #include"quiz.h"
+#include"util.h"
 
 int main(){
     
